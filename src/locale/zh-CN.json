@@ -1,0 +1,25 @@
+{
+  "menu.dashboard": "仪表盘",
+  "menu.dashboard.workplace": "工作台",
+  "menu.user.info": "用户信息",
+  "menu.user.setting": "用户设置",
+  "menu.user.switchRoles": "切换角色",
+  "menu.user.role.admin": "管理员",
+  "menu.user.role.user": "普通用户",
+
+  "navbar.logout": "退出登录",
+
+  "message.lang.tips": "语言切换至 ",
+
+  "login.form.title": "登录 Meits Plus",
+  "login.form.subTitle": "开心工作，快乐生活",
+  "login.form.required.username": "用户名不能为空",
+  "login.form.required.password": "密码不能为空",
+  "login.form.login.errMsg": "用户名或密码错误",
+  "login.form.username.placeholder": "admin/user",
+  "login.form.password.placeholder": "admin/user",
+  "login.form.rememberPassword": "记住密码",
+  "login.form.forgetPassword": "忘记密码",
+  "login.form.login": "登录",
+  "login.form.register": "注册账号"
+}

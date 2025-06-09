@@ -1,0 +1,88 @@
+{
+  "name": "arco-design-pro",
+  "version": "1.0.0",
+  "description": "Arco Design Pro",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "preinstall": "npx only-allow pnpm",
+    "lint": "eslint src/ --ext .ts,.tsx,.js,.jsx --fix --cache",
+    "prepare": "husky",
+    "preview": "vite preview",
+    "start": "vite",
+    "start:dev": "vite --mode dev",
+    "start:test": "vite --mode test",
+    "test": "vitest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@metisjs/icons": "^1.0.1",
+    "@tailwindcss/vite": "^4.1.8",
+    "ahooks": "^3.8.5",
+    "axios": "^1.9.0",
+    "i18next": "^25.2.1",
+    "i18next-browser-languagedetector": "^8.1.0",
+    "lodash-es": "^4.17.21",
+    "metis-ui": "^1.0.2",
+    "nprogress": "^0.2.0",
+    "query-string": "^6.13.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-i18next": "^15.5.2",
+    "react-router": "^7.6.2",
+    "tailwindcss": "^4.1.8",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/js": "^9.28.0",
+    "@faker-js/faker": "^9.8.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.2",
+    "@types/loadable__component": "^5.13.9",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@vitejs/plugin-react": "^4.5.1",
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
+    "msw": "^2.9.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-packagejson": "^2.5.15",
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.1",
+    "vite": "^6.3.5",
+    "vite-plugin-svgr": "^4.3.0",
+    "vitest": "^3.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "pnpm": {
+    "neverBuiltDependencies": []
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}

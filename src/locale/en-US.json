@@ -1,0 +1,24 @@
+{
+  "menu.dashboard": "Dashboard",
+  "menu.dashboard.workplace": "Workplace",
+  "menu.user.info": "User Info",
+  "menu.user.setting": "User Setting",
+  "menu.user.switchRoles": "Switch Roles",
+  "menu.user.role.admin": "Admin",
+  "menu.user.role.user": "General User",
+
+  "navbar.logout": "Logout",
+
+  "message.lang.tips": "Language switch to ",
+
+  "login.form.title": "Login to Meits Plus",
+  "login.form.required.username": "Username cannot be empty",
+  "login.form.required.password": "Password cannot be empty",
+  "login.form.login.errMsg": "Login error, please refresh and try again",
+  "login.form.username.placeholder": "admin/user",
+  "login.form.password.placeholder": "admin/user",
+  "login.form.rememberPassword": "Remember password",
+  "login.form.forgetPassword": "Forgot password",
+  "login.form.login": "login",
+  "login.form.register": "register account"
+}
