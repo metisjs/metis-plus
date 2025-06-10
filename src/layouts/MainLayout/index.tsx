@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { SidebarOutline } from '@metisjs/icons';
 import { uniq } from 'lodash-es';
-import { Button, Layout, Menu, Scrollbar, Tooltip, type SafeKey } from 'metis-ui';
+import { Button, Layout, Menu, Scrollbar, Tooltip, useTheme, type SafeKey } from 'metis-ui';
 import type { ItemType, MenuInfo } from 'metis-ui/es/menu/interface';
 import { useTranslation } from 'react-i18next';
 import { Outlet, useLocation, useNavigate } from 'react-router';
@@ -22,6 +22,7 @@ const MainLayout = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const userPerms = useUserStore((state) => state.currentUser?.permissions || []);
+  const { isDark } = useTheme();
 
   const [collapsed, setCollapsed] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<SafeKey[]>();
@@ -44,8 +45,8 @@ const MainLayout = () => {
   };
 
   return (
-    <Layout className="h-screen dark:bg-gray-950">
-      <Header className="border-border-secondary flex h-14 justify-between border-b px-5">
+    <Layout className="h-screen dark:bg-gray-900">
+      <Header className="flex h-14 justify-between border-b border-gray-950/5 px-5 dark:border-white/10">
         <div className="flex items-center gap-2 text-xl font-medium">
           <Logo className="size-8" />
           <span>Metis Plus</span>
@@ -61,9 +62,10 @@ const MainLayout = () => {
           <Sider
             width={288}
             collapsed={collapsed}
-            className="border-border-secondary border-r dark:bg-gray-950"
+            className="border-r border-gray-950/5 dark:border-white/10 dark:bg-gray-900"
           >
             <Menu
+              theme={isDark ? 'dark' : 'light'}
               mode="inline"
               selectedKeys={selectedKeys}
               openKeys={openKeys}

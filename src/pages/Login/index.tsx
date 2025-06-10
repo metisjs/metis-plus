@@ -4,7 +4,7 @@ import Logo from '@/assets/logo.svg?react';
 import Footer from '@/components/Footer';
 
 const Login = () => (
-  <div className="flex h-screen dark:bg-gray-950">
+  <div className="flex h-screen dark:bg-gray-900">
     <div className="fixed top-6 left-6 z-1 inline-flex items-center gap-2">
       <Logo className="size-8" />
       <div className="text-xl">Metis Plus</div>
