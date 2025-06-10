@@ -7,6 +7,7 @@ interface UserState {
   loading?: boolean;
   currentUser: CurrentUser;
   fetchCurrentUser: () => void;
+  clearCurrentUser: () => void;
 }
 
 export const useUserStore = create<UserState>((set) => ({
@@ -21,4 +22,5 @@ export const useUserStore = create<UserState>((set) => ({
       router.navigate(loginPath, { replace: true });
     }
   },
+  clearCurrentUser: () => set({ currentUser: { permissions: [] } }),
 }));

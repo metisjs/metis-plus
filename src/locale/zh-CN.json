@@ -7,9 +7,19 @@
   "menu.user.role.admin": "管理员",
   "menu.user.role.user": "普通用户",
 
-  "navbar.logout": "退出登录",
+  "theme.light": "亮色模式",
+  "theme.dark": "暗色模式",
+  "theme.system": "跟随系统",
+  "theme.tips.switch": "主题切换",
 
-  "message.lang.tips": "语言切换至 ",
+  "lang.tips.switch": "语言切换至英文",
+
+  "sidebar.tips.collapse": "折叠侧边栏",
+  "sidebar.tips.expand": "展开侧边栏",
+
+  "navbar.account.center": "个人中心",
+  "navbar.account.settings": "个人设置",
+  "navbar.logout": "退出登录",
 
   "login.form.title": "登录 Meits Plus",
   "login.form.subTitle": "开心工作，快乐生活",

@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router';
 import { login } from '@/apis/user';
 import useRequest from '@/hooks/useRequest';
+import { useUserStore } from '@/store/user';
 import { setToken } from '@/utils/request';
 
 type LoginValues = { username: string; password: string };
@@ -14,6 +15,7 @@ export default function LoginForm() {
   const formRef = useRef<FormInstance<LoginValues>>(null);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const fetchCurrentUser = useUserStore((state) => state.fetchCurrentUser);
 
   const [errorMessage, setErrorMessage] = useState('');
   const [loginParams, setLoginParams] = useLocalStorageState<LoginValues | undefined>(
@@ -33,8 +35,11 @@ export default function LoginForm() {
     try {
       const { token } = await runLogin(value.username, value.password);
       setToken(token);
+
       navigate('/');
       setLoginParams(rememberPwd ? value : undefined);
+
+      fetchCurrentUser();
     } catch (error) {
       if (error instanceof Error) {
         setErrorMessage(t(error.message));

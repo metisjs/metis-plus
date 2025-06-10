@@ -15,7 +15,7 @@ function convertReactElement(node: React.ReactNode): React.ReactElement {
 }
 
 const Access: FC<PropsWithChildren<AccessProps>> = ({ fallback, permission, children }) => {
-  const { permissions } = useUserStore((state) => state.currentUser);
+  const permissions = useUserStore((state) => state.currentUser.permissions);
 
   const accessible = useMemo(() => {
     return hasPermission(permission, permissions);

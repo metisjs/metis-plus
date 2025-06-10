@@ -32,12 +32,10 @@ const userHandles = [
       permissions = [];
     }
     const data: CurrentUser = {
-      name: faker.person.fullName(),
+      name: faker.person.firstName(),
       age: faker.number.int({ min: 18, max: 35 }),
       avatar: faker.image.avatar(),
       job: faker.person.jobTitle(),
-      organization: faker.company.name(),
-      location: faker.location.city(),
       email: faker.internet.email(),
       permissions,
     };

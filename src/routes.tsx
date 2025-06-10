@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import { Cog6ToothOutline, HomeOutline } from '@metisjs/icons';
 import { createBrowserRouter, Navigate, type RouteObject } from 'react-router';
 import Access from './components/Access';
 import Loading from './loading';
@@ -26,6 +27,7 @@ const routes: Route[] = [
   },
   {
     path: '/',
+    component: () => import('@/layouts/MainLayout'),
     children: [
       {
         index: true,
@@ -33,14 +35,25 @@ const routes: Route[] = [
       },
       {
         name: 'menu.dashboard',
+        icon: <HomeOutline />,
         path: 'dashboard',
         component: () => import('@/pages/Dashboard'),
       },
       {
         name: 'menu.ttt',
+        icon: <Cog6ToothOutline />,
         path: 'admin',
         component: () => import('@/pages/Admin'),
         permission: 'admin',
+      },
+      {
+        name: '系统管理',
+        icon: <Cog6ToothOutline />,
+        path: 'system',
+        children: [
+          { name: '用户管理', path: 'account', component: () => import('@/pages/Admin') },
+          { name: '系统设置', path: 'settings', component: () => import('@/pages/Admin') },
+        ],
       },
       {
         path: '*',

@@ -21,7 +21,10 @@ function App() {
   const { i18n } = useTranslation();
   const fetchCurrentUser = useUserStore((state) => state.fetchCurrentUser);
   const loading = useUserStore((state) => state.loading);
-  const [theme] = useLocalStorageState('theme', { defaultValue: 'auto' });
+  const [theme] = useLocalStorageState('theme', {
+    defaultValue: 'system',
+    listenStorageChange: true,
+  });
 
   useEffect(() => {
     if (window.location.pathname !== loginPath) {
