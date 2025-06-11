@@ -97,7 +97,10 @@ const MainLayout = () => {
                 onOpenChange={(openKeys) => setOpenKeys(openKeys)}
                 className={{
                   root: 'bg-transparent',
-                  item: ({ selected }) => ({ inner: clsx(selected && 'bg-gray-900') }),
+                  sub: { inner: 'dark:hover:bg-gray-900' },
+                  item: ({ selected }) => ({
+                    inner: clsx('dark:hover:bg-gray-900', selected && 'dark:bg-gray-900'),
+                  }),
                 }}
               />
               <Tooltip title={collapsed ? t('sidebar.tips.expand') : t('sidebar.tips.collapse')}>
