@@ -1,1 +1,0 @@
-import{aw as e,ax as n,y as s,b3 as o,a6 as u}from"./index-BSXb5CKI.js";const r=()=>{const{t}=e(),a=n();return s.jsx(o,{status:"404",title:"404",subTitle:t("pages.404.subTitle"),extra:s.jsx(u,{type:"primary",onClick:()=>a("/"),children:t("pages.404.buttonText")})})};export{r as default};
