@@ -1,0 +1,1 @@
+import{au as e,av as n,w as s,b3 as o,a3 as u}from"./index-hZIIZgyY.js";const r=()=>{const{t}=e(),a=n();return s.jsx(o,{status:"404",title:"404",subTitle:t("pages.404.subTitle"),extra:s.jsx(u,{type:"primary",onClick:()=>a("/"),children:t("pages.404.buttonText")})})};export{r as default};
