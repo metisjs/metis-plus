@@ -19,6 +19,7 @@ export const useUserStore = create<UserState>((set) => ({
       const { data } = await getCurrentUser();
       set({ currentUser: data, loading: false });
     } catch {
+      set({ loading: false });
       router.navigate(loginPath, { replace: true });
     }
   },
