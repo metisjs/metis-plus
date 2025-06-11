@@ -1,0 +1,1 @@
+import{y as o}from"./index-C8_WVls_.js";import{P as t}from"./index-Di0e35GO.js";import"./MenuConext-CHLNAZtL.js";import"./Sider-Dg36NDJ-.js";import"./ChevronDownOutline-Z9jDAdQp.js";const p=()=>o.jsx(t,{children:"AccountInfo"});export{p as default};

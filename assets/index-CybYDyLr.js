@@ -1,1 +1,0 @@
-import{y as r}from"./index-T7WVeLkN.js";import{P as o}from"./index-CRa9Y60G.js";import"./MenuConext-BWSPu_ec.js";import"./Sider-Bxp5DVHd.js";import"./ChevronDownOutline-DtBrbgOZ.js";const m=()=>r.jsx(o,{children:"Workplace"});export{m as default};

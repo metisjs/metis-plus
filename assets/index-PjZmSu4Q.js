@@ -1,1 +1,0 @@
-import{aw as r,y as o}from"./index-T7WVeLkN.js";import{P as s}from"./index-CRa9Y60G.js";import"./MenuConext-BWSPu_ec.js";import"./Sider-Bxp5DVHd.js";import"./ChevronDownOutline-DtBrbgOZ.js";const p=()=>{const{t}=r();return o.jsx(s,{children:t("admin.access")})};export{p as default};
