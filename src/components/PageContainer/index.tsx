@@ -29,12 +29,10 @@ const PageContainer: FC<PropsWithChildren<PageContainerProps>> = ({ title, child
   return (
     <div>
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName">
-          {title ?? currentMenu?.label}
-        </h2>
+        <h2 className="text-text text-xl font-semibold">{title ?? currentMenu?.label}</h2>
         <Breadcrumb items={mergedBreadcrumbs} itemRender={itemRender} />
       </div>
-      <div className="rounded-2xl border border-gray-950/5 bg-white p-5 lg:p-6 dark:border-white/10 dark:bg-white/[0.03]">
+      <div className="rounded-2xl border border-gray-950/5 bg-white p-5 lg:p-6 dark:border-white/10 dark:bg-white/3">
         {children}
       </div>
     </div>

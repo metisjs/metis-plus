@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { SidebarOutline } from '@metisjs/icons';
 import { uniq } from 'lodash-es';
-import { Button, Layout, Menu, Scrollbar, Tooltip, useTheme, type SafeKey } from 'metis-ui';
+import { Button, clsx, Layout, Menu, Scrollbar, Tooltip, useTheme, type SafeKey } from 'metis-ui';
 import type { ItemType, MenuInfo } from 'metis-ui/es/menu/interface';
 import { useTranslation } from 'react-i18next';
 import { Outlet, useLocation, useNavigate } from 'react-router';
@@ -95,6 +95,10 @@ const MainLayout = () => {
                 items={menus as ItemType[]}
                 onClick={handleMenuClick}
                 onOpenChange={(openKeys) => setOpenKeys(openKeys)}
+                className={{
+                  root: 'bg-transparent',
+                  item: ({ selected }) => ({ inner: clsx(selected && 'bg-gray-900') }),
+                }}
               />
               <Tooltip title={collapsed ? t('sidebar.tips.expand') : t('sidebar.tips.collapse')}>
                 <Button
@@ -106,7 +110,7 @@ const MainLayout = () => {
                 />
               </Tooltip>
             </Sider>
-            <Content className="bg-gray-50 dark:bg-gray-950/45">
+            <Content>
               <Scrollbar>
                 <div className="min-h-[calc(100%-3rem)] p-6">
                   <Outlet />
