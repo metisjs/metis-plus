@@ -6,7 +6,6 @@
   "scripts": {
     "build": "vite build",
     "build:gh-pages": "cross-env VITE_GH_PAGES=1 vite build",
-    "preinstall": "npx only-allow pnpm",
     "lint": "eslint src/ --ext .ts,.tsx,.js,.jsx --fix --cache",
     "prepare": "husky",
     "preview": "vite preview",
