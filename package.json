@@ -1,10 +1,11 @@
 {
-  "name": "arco-design-pro",
+  "name": "metis-plus",
   "version": "1.0.0",
-  "description": "Arco Design Pro",
+  "description": "The perfect starting point for your next project with Metis UI.",
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "build:gh-pages": "cross-env VITE_GH_PAGES=1 vite build",
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint src/ --ext .ts,.tsx,.js,.jsx --fix --cache",
     "prepare": "husky",

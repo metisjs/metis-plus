@@ -39,13 +39,18 @@ function App() {
   );
 }
 
-if (import.meta.env.DEV && import.meta.env.VITE_ENABLE_MOCK === 'true') {
-  const { worker } = await import('./mocks/browser');
-  await worker.start({});
-}
+(async () => {
+  if (
+    (import.meta.env.DEV && import.meta.env.VITE_ENABLE_MOCK === 'true') ||
+    import.meta.env.VITE_GH_PAGES
+  ) {
+    const { worker } = await import('./mocks/browser');
+    await worker.start({});
+  }
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  );
+})();
