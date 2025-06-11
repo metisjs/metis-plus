@@ -11,8 +11,6 @@
     "prepare": "husky",
     "preview": "vite preview",
     "start": "vite",
-    "start:dev": "vite --mode dev",
-    "start:test": "vite --mode test",
     "test": "vitest"
   },
   "browserslist": {
