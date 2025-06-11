@@ -6,13 +6,13 @@ describe('hasPermission', () => {
   const userPerms: UserPermissions = [
     { resource: 'article', actions: ['read', 'write'] },
     { resource: 'user', actions: ['read'] },
-    { resource: 'dashboard' },
+    { resource: 'workplace' },
   ];
 
   it('should match single resource', () => {
     expect(hasPermission({ resource: 'article' }, userPerms)).toBe(true);
     expect(hasPermission({ resource: 'comment' }, userPerms)).toBe(false);
-    expect(hasPermission({ resource: 'dashboard' }, userPerms)).toBe(true);
+    expect(hasPermission({ resource: 'workplace' }, userPerms)).toBe(true);
   });
 
   it('should match resource and actions', () => {
@@ -38,15 +38,15 @@ describe('hasPermission', () => {
   });
 
   it('should support nested and/or', () => {
-    // (article AND user) OR dashboard
+    // (article AND user) OR workplace
     const perm: Permission = {
-      or: [{ and: [{ resource: 'article' }, { resource: 'user' }] }, { resource: 'dashboard' }],
+      or: [{ and: [{ resource: 'article' }, { resource: 'user' }] }, { resource: 'workplace' }],
     };
     expect(hasPermission(perm, userPerms)).toBe(true);
 
-    // (article AND comment) OR dashboard
+    // (article AND comment) OR workplace
     const perm2: Permission = {
-      or: [{ and: [{ resource: 'article' }, { resource: 'comment' }] }, { resource: 'dashboard' }],
+      or: [{ and: [{ resource: 'article' }, { resource: 'comment' }] }, { resource: 'workplace' }],
     };
     expect(hasPermission(perm2, userPerms)).toBe(true);
 
@@ -56,9 +56,9 @@ describe('hasPermission', () => {
     };
     expect(hasPermission(perm3, userPerms)).toBe(false);
 
-    // article AND (user OR dashboard)
+    // article AND (user OR workplace)
     const perm4: Permission = {
-      and: [{ resource: 'article' }, { or: [{ resource: 'user' }, { resource: 'dashboard' }] }],
+      and: [{ resource: 'article' }, { or: [{ resource: 'user' }, { resource: 'workplace' }] }],
     };
     expect(hasPermission(perm4, userPerms)).toBe(true);
 
@@ -85,7 +85,7 @@ describe('hasPermission', () => {
 
   it('should support RegExp resource', () => {
     expect(hasPermission({ resource: /^art/ }, userPerms)).toBe(true);
-    expect(hasPermission({ resource: /^dash/ }, userPerms)).toBe(true);
+    expect(hasPermission({ resource: /^work/ }, userPerms)).toBe(true);
     expect(hasPermission({ resource: /^com/ }, userPerms)).toBe(false);
   });
 });

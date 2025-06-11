@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Cog6ToothOutline, HomeOutline } from '@metisjs/icons';
+import { Cog6ToothOutline, Squares2X2Outline, UserOutline } from '@metisjs/icons';
 import { createBrowserRouter, Navigate, type RouteObject } from 'react-router';
 import Access from './components/Access';
 import Loading from './loading';
@@ -9,7 +9,6 @@ import type { Permission } from '@/utils/auth';
 export type Route = Omit<RouteObject, 'Component' | 'children'> & {
   name?: string;
   icon?: React.ReactNode;
-  /** 相对 pages 路径 */
   component?: () => Promise<{
     default: React.ComponentType;
   }>;
@@ -31,29 +30,41 @@ const routes: Route[] = [
     children: [
       {
         index: true,
-        element: <Navigate to="/dashboard" replace />,
+        element: <Navigate to="/workplace" replace />,
       },
       {
-        name: 'menu.dashboard',
-        icon: <HomeOutline />,
-        path: 'dashboard',
-        component: () => import('@/pages/Dashboard'),
+        name: 'menu.workplace',
+        icon: <Squares2X2Outline />,
+        path: 'workplace',
+        component: () => import('@/pages/workplace'),
       },
       {
-        name: 'menu.ttt',
+        name: 'menu.account',
+        icon: <UserOutline />,
+        path: 'account',
+        children: [
+          {
+            index: true,
+            element: <Navigate to="info" replace />,
+          },
+          {
+            name: 'menu.account.info',
+            path: 'info',
+            component: () => import('@/pages/account/info'),
+          },
+          {
+            name: 'menu.account.settings',
+            path: 'settings',
+            component: () => import('@/pages/account/settings'),
+          },
+        ],
+      },
+      {
+        name: 'menu.admin',
         icon: <Cog6ToothOutline />,
         path: 'admin',
-        component: () => import('@/pages/Admin'),
-        permission: 'admin',
-      },
-      {
-        name: '系统管理',
-        icon: <Cog6ToothOutline />,
-        path: 'system',
-        children: [
-          { name: '用户管理', path: 'account', component: () => import('@/pages/Admin') },
-          { name: '系统设置', path: 'settings', component: () => import('@/pages/Admin') },
-        ],
+        component: () => import('@/pages/admin'),
+        permission: { resource: 'admin', actions: ['read'] },
       },
       {
         path: '*',

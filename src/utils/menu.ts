@@ -36,10 +36,11 @@ function stripQueryStringAndHashFromPath(url: string) {
 export function formatter(
   { data, t, userPerms }: FormatterProps,
   parentPath = '/',
+  ignoreFilter = false,
 ): MenuDataItem[] {
   return data
     .filter((item) => {
-      if (item.hideInMenu) return false;
+      if (!ignoreFilter && item.hideInMenu) return false;
       if (item.permission && !hasPermission(item.permission, userPerms)) return false;
       return true;
     })
@@ -47,12 +48,18 @@ export function formatter(
       const mergedPath = mergePath(item.path, parentPath);
 
       if (!item.name) {
-        return item.children ? formatter({ data: item.children, t, userPerms }, mergedPath) : [];
+        return item.children
+          ? formatter({ data: item.children, t, userPerms }, mergedPath, ignoreFilter)
+          : [];
       }
 
       let children: MenuDataItem[] | undefined = undefined;
       if (item.children) {
-        const formattedChildren = formatter({ data: item.children, t, userPerms }, mergedPath);
+        const formattedChildren = formatter(
+          { data: item.children, t, userPerms },
+          mergedPath,
+          ignoreFilter,
+        );
         if (formattedChildren.length > 0) {
           children = formattedChildren;
         }
@@ -123,7 +130,8 @@ export const getMenuMatches = (flatMenuKeys: string[] = [], path: string): strin
  * @param menuData
  * @returns MenuDataItem[]
  */
-export const getMatchMenus = (pathname: string, menuData: MenuDataItem[]): MenuDataItem[] => {
+export const getMatchMenus = (pathname: string, formatterProps: FormatterProps): MenuDataItem[] => {
+  const menuData = formatter(formatterProps, '/', true);
   const flatMenus = getFlatMenus(menuData);
   const flatMenuKeys = Object.keys(flatMenus);
   const menuPathKeys = getMenuMatches(flatMenuKeys, pathname);

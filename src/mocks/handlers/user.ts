@@ -27,7 +27,7 @@ const userHandles = [
 
     let permissions: UserPermissions = [];
     if (token === 'fake_token_admin') {
-      permissions = [];
+      permissions = [{ resource: 'admin', actions: ['read', 'edit', 'delete'] }];
     } else if (token === 'fake_token_user') {
       permissions = [];
     }

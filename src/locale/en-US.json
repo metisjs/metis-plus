@@ -1,6 +1,6 @@
 {
-  "menu.dashboard": "Dashboard",
-  "menu.dashboard.workplace": "Workplace",
+  "menu.workplace": "Workplace",
+  "menu.workplace.workplace": "Workplace",
   "menu.user.info": "User Info",
   "menu.user.setting": "User Setting",
   "menu.user.switchRoles": "Switch Roles",

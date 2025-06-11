@@ -30,8 +30,8 @@ importers:
         specifier: ^4.17.21
         version: 4.17.21
       metis-ui:
-        specifier: ^1.0.3
-        version: 1.0.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.8)
+        specifier: ^1.0.4
+        version: 1.0.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.8)
       nprogress:
         specifier: ^0.2.0
         version: 0.2.0
@@ -2087,8 +2087,8 @@ packages:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
 
-  metis-ui@1.0.3:
-    resolution: {integrity: sha512-5vfqPZoUiquH3Cu2ERSkvB6NQZgXmb8MxZUOwBwaGjbMqLQqBWV8CxaLOfNNpqyBOlYJ0LYAiRVbZvXRw5sAqA==}
+  metis-ui@1.0.4:
+    resolution: {integrity: sha512-nusLpCrffEJSEq0PCJ2nDDF4Y4AmAgv4NnnPjUo4Utb/gMSKdRezVqusWvp217MASmu8lkSH0/vAiafhfkp/9g==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -4888,7 +4888,7 @@ snapshots:
 
   merge2@1.4.1: {}
 
-  metis-ui@1.0.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.8):
+  metis-ui@1.0.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.8):
     dependencies:
       '@babel/runtime': 7.27.6
       '@dnd-kit/core': 6.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)

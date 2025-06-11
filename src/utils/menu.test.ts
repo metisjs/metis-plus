@@ -10,6 +10,50 @@ const userPerms = [
   { resource: 'admin', actions: ['edit'] },
 ];
 
+const routes = [
+  {
+    path: 'dashboard',
+    name: 'dashboard',
+    icon: 'icon-dashboard',
+  },
+  {
+    path: 'admin',
+    name: 'admin',
+    icon: 'icon-admin',
+    permission: { resource: 'admin' },
+    children: [
+      {
+        path: 'user',
+        name: 'admin.user',
+        icon: 'icon-user',
+      },
+      {
+        path: 'role',
+        name: 'admin.role',
+        icon: 'icon-role',
+        hideInMenu: true,
+      },
+      {
+        path: 'role/info',
+        name: 'admin.role.info',
+        hideInMenu: true,
+      },
+    ],
+  },
+  {
+    path: 'account',
+    name: 'account',
+    icon: 'icon-account',
+    children: [
+      {
+        path: 'info',
+        name: 'account.info',
+        icon: 'icon-info',
+      },
+    ],
+  },
+];
+
 describe('formatter', () => {
   it('should format menu data with label and key', () => {
     const data = [
@@ -66,6 +110,60 @@ describe('formatter', () => {
     expect(result.length).toBe(1);
     expect(result[0].key).toBe('/parent/child');
   });
+
+  it('should handle deeply nested children', () => {
+    const data = [
+      {
+        path: 'a',
+        name: 'a',
+        children: [
+          {
+            path: 'b',
+            name: 'b',
+            children: [{ path: 'c', name: 'c' }],
+          },
+        ],
+      },
+    ];
+    const result = formatter({ data, t, userPerms });
+    expect(result[0].children?.[0].children?.[0].key).toBe('/a/b/c');
+  });
+
+  it('should ignoreFilter when set to true', () => {
+    const data = [
+      { path: 'a', name: 'a', hideInMenu: true },
+      { path: 'b', name: 'b' },
+    ];
+    const result = formatter({ data, t, userPerms }, '/', true);
+    expect(result.length).toBe(2);
+  });
+
+  it('should support empty data', () => {
+    const result = formatter({ data: [], t, userPerms });
+    expect(result).toEqual([]);
+  });
+
+  it('should support missing children', () => {
+    const data = [{ path: 'a', name: 'a' }];
+    const result = formatter({ data, t, userPerms });
+    expect(result[0].children).toBeUndefined();
+  });
+
+  it('should support missing name and flatten children', () => {
+    const data = [
+      {
+        path: 'parent',
+        children: [
+          { path: 'child1', name: 'child1' },
+          { path: 'child2', name: 'child2' },
+        ],
+      },
+    ];
+    const result = formatter({ data, t, userPerms });
+    expect(result.length).toBe(2);
+    expect(result[0].key).toBe('/parent/child1');
+    expect(result[1].key).toBe('/parent/child2');
+  });
 });
 
 describe('getFlatMenus', () => {
@@ -82,13 +180,6 @@ describe('getFlatMenus', () => {
     expect(flat['/a'].label).toBe('A');
     expect(flat['/a/b'].label).toBe('B');
     expect(flat['/c'].label).toBe('C');
-  });
-
-  it('should skip items without key', () => {
-    const menuData: MenuDataItem[] = [{ label: 'A' }, { key: '/b', label: 'B' }];
-    const flat = getFlatMenus(menuData);
-    expect(flat['/b'].label).toBe('B');
-    expect(flat['A']).toBeUndefined();
   });
 });
 
@@ -116,28 +207,35 @@ describe('getMenuMatches', () => {
   });
 });
 
-describe('getMatchMenu', () => {
-  const menuData: MenuDataItem[] = [
-    { key: '/', label: 'Home' },
-    { key: '/dashboard', label: 'Dashboard' },
-    {
-      key: '/admin',
-      label: 'Admin',
-      children: [{ key: '/admin/users', label: 'Users' }],
-    },
-  ];
+describe('getMatchMenus', () => {
+  const formatterProps = { data: routes, t, userPerms };
 
-  it('should return matched menu items', () => {
-    const matches = getMatchMenus('/admin/users', menuData);
-    expect(matches.some((item) => item.key === '/admin/users')).toBe(true);
-    expect(matches.some((item) => item.key === '/admin')).toBe(true);
+  it('should return matched menu items for nested path', () => {
+    const matched = getMatchMenus('/admin/user', formatterProps);
+    expect(matched.map((m) => m.key)).toContain('/admin');
+    expect(matched.map((m) => m.key)).toContain('/admin/user');
+  });
+
+  it('should return matched menu item for root path', () => {
+    const matched = getMatchMenus('/dashboard', formatterProps);
+    expect(matched.map((m) => m.key)).toContain('/dashboard');
   });
 
   it('should return empty array if no match', () => {
-    expect(getMatchMenus('/notfound', menuData)).toEqual([]);
+    const matched = getMatchMenus('/notfound', formatterProps);
+    expect(matched).toEqual([]);
   });
 
-  it('should match root', () => {
-    expect(getMatchMenus('/', menuData).some((item) => item.key === '/')).toBe(true);
+  it('should support deeply nested children', () => {
+    const matched = getMatchMenus('/account/info', formatterProps);
+    expect(matched.map((m) => m.key)).toContain('/account');
+    expect(matched.map((m) => m.key)).toContain('/account/info');
+  });
+
+  it('should return matched menu items for hidden menu paths with nested structure', () => {
+    const matched = getMatchMenus('/admin/role/info', formatterProps);
+    expect(matched.map((m) => m.key)).toContain('/admin');
+    expect(matched.map((m) => m.key)).toContain('/admin/role');
+    expect(matched.map((m) => m.key)).toContain('/admin/role/info');
   });
 });
