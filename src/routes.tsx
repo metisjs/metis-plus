@@ -22,7 +22,7 @@ export const loginPath = '/login';
 const routes: Route[] = [
   {
     path: loginPath,
-    component: () => import('@/pages/Login'),
+    component: () => import('@/pages/login'),
   },
   {
     path: '/',
