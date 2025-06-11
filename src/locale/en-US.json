@@ -1,24 +1,35 @@
 {
   "menu.workplace": "Workplace",
-  "menu.workplace.workplace": "Workplace",
-  "menu.user.info": "User Info",
-  "menu.user.setting": "User Setting",
-  "menu.user.switchRoles": "Switch Roles",
-  "menu.user.role.admin": "Admin",
-  "menu.user.role.user": "General User",
+  "menu.account": "Account Center",
+  "menu.account.info": "Account Info",
+  "menu.account.settings": "Account Settings",
+  "menu.admin": "System Admin",
 
+  "theme.light": "Light Mode",
+  "theme.dark": "Dark Mode",
+  "theme.system": "Follow System",
+  "theme.tips.switch": "Switch Theme",
+
+  "lang.tips.switch": "Switch to Chinese",
+
+  "sidebar.tips.collapse": "Collapse Sidebar",
+  "sidebar.tips.expand": "Expand Sidebar",
+
+  "navbar.account.center": "Account Center",
+  "navbar.account.settings": "Account Settings",
   "navbar.logout": "Logout",
 
-  "message.lang.tips": "Language switch to ",
-
-  "login.form.title": "Login to Meits Plus",
-  "login.form.required.username": "Username cannot be empty",
-  "login.form.required.password": "Password cannot be empty",
-  "login.form.login.errMsg": "Login error, please refresh and try again",
+  "login.form.title": "Login to Metis Plus",
+  "login.form.subTitle": "Work happily, live joyfully",
+  "login.form.required.username": "Username is required",
+  "login.form.required.password": "Password is required",
+  "login.form.login.errMsg": "Invalid username or password",
   "login.form.username.placeholder": "admin/user",
   "login.form.password.placeholder": "admin/user",
-  "login.form.rememberPassword": "Remember password",
-  "login.form.forgetPassword": "Forgot password",
-  "login.form.login": "login",
-  "login.form.register": "register account"
+  "login.form.rememberPassword": "Remember Password",
+  "login.form.forgetPassword": "Forgot Password",
+  "login.form.login": "Login",
+  "login.form.register": "Register Account",
+
+  "admin.access": "You need administrator privileges to access this page"
 }
