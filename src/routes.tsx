@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Cog6ToothOutline, Squares2X2Outline, UserOutline } from '@metisjs/icons';
-import { createBrowserRouter, Navigate, type RouteObject } from 'react-router';
+import { createHashRouter, Navigate, type RouteObject } from 'react-router';
 import Access from './components/Access';
 import Loading from './loading';
 import Err403 from './pages/403';
@@ -106,7 +106,7 @@ function generateRouteObjects(routes: Route[]): RouteObject[] {
   });
 }
 
-const router = createBrowserRouter(generateRouteObjects(routes));
+const router = createHashRouter(generateRouteObjects(routes));
 
 export { router };
 
