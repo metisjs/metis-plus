@@ -30,6 +30,11 @@ const userHandles = [
       permissions = [{ resource: 'admin', actions: ['read', 'edit', 'delete'] }];
     } else if (token === 'fake_token_user') {
       permissions = [];
+    } else {
+      return HttpResponse.json({
+        success: false,
+        errorCode: 10401,
+      });
     }
     const data: CurrentUser = {
       name: faker.person.firstName(),
