@@ -110,7 +110,7 @@ const MainLayout = () => {
                 />
               </Tooltip>
             </Sider>
-            <Content>
+            <Content className="bg-gray-50 dark:bg-transparent">
               <Scrollbar>
                 <div className="min-h-[calc(100%-3rem)] p-6">
                   <Outlet />
