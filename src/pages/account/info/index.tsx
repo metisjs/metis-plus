@@ -1,7 +1,7 @@
 import PageContainer from '@/components/PageContainer';
 
 const AccountInfo = () => {
-  return <PageContainer>AccountInfo</PageContainer>;
+  return <PageContainer>Feature is under construction</PageContainer>;
 };
 
 export default AccountInfo;
