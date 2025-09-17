@@ -2,12 +2,16 @@ import LoginForm from './Form';
 import BannerImg from '@/assets/banner.svg?react';
 import Logo from '@/assets/logo.svg?react';
 import Footer from '@/components/Footer';
+import ThemeSwitch from '@/components/ThemeSwitch';
 
 const Login = () => (
   <div className="flex h-screen">
     <div className="fixed top-6 left-6 z-1 inline-flex items-center gap-2">
       <Logo className="size-8" />
       <div className="text-xl">Metis Plus</div>
+    </div>
+    <div className="fixed top-6 right-151 z-1 inline-flex items-center gap-2">
+      <ThemeSwitch />
     </div>
     <div className="relative flex flex-1 items-center justify-center px-10 pb-10">
       <LoginForm />
