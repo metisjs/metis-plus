@@ -22,16 +22,19 @@ const MainLayout = () => {
 
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const userPerms = useUserStore((state) => state.currentUser?.permissions || []);
+  const userPerms = useUserStore((state) => state.currentUser?.permissions);
   const { isDark } = useTheme();
 
   const [collapsed, setCollapsed] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<SafeKey[]>();
   const [openKeys, setOpenKeys] = useState<SafeKey[]>([]);
 
-  const menus = useMemo(() => formatter({ data: routes, t, userPerms }), [userPerms, t]);
+  const menus = useMemo(
+    () => formatter({ data: routes, t, userPerms: userPerms ?? [] }),
+    [userPerms, t],
+  );
   const matchedMenus = useMemo(
-    () => getMatchMenus(pathname, { data: routes, t, userPerms }),
+    () => getMatchMenus(pathname, { data: routes, t, userPerms: userPerms ?? [] }),
     [pathname, t, userPerms],
   );
 
