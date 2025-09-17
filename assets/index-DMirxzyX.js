@@ -1,1 +1,0 @@
-import{y as r}from"./index-CXVAN6i7.js";import{P as t}from"./index-Cy8I5p0L.js";import"./MenuConext-CkSN_PA4.js";import"./Sider-D3n8-3Hl.js";import"./ChevronDownOutline-CEzug0Y1.js";const m=()=>r.jsx(t,{children:"Feature is under construction"});export{m as default};

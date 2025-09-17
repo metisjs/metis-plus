@@ -1,4 +1,4 @@
-import{r}from"./index-CXVAN6i7.js";const c=`accept acceptCharset accessKey action allowFullScreen allowTransparency
+import{r}from"./index-BO5UqqYm.js";const c=`accept acceptCharset accessKey action allowFullScreen allowTransparency
     alt async autoComplete autoFocus autoPlay capture cellPadding cellSpacing challenge
     charSet checked classID className colSpan cols content contentEditable contextMenu
     controls coords crossOrigin data dateTime default defer dir disabled download draggable

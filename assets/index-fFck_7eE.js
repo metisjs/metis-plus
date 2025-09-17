@@ -1,0 +1,1 @@
+import{A as r}from"./index-BO5UqqYm.js";import{P as t}from"./index-Er4dFprg.js";import"./MenuConext-2gqVLFCC.js";import"./ChevronDownOutline-btknPzPq.js";import"./Dropdown-DhUqZZ99.js";const m=()=>r.jsx(t,{children:"Feature is under construction"});export{m as default};
