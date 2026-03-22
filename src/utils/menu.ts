@@ -60,9 +60,10 @@ export function formatter(
           mergedPath,
           ignoreFilter,
         );
-        if (formattedChildren.length > 0) {
-          children = formattedChildren;
+        if (formattedChildren.length === 0) {
+          return [];
         }
+        children = formattedChildren;
       }
 
       const menuItem = {
